@@ -5,7 +5,7 @@
 <div class="display-box">
     <h3><%= @comic_book.title %></h3>
     
-    <a href="/comic_books/edit" class="button">Edit Comic Book</a>
+    <a href="/comic_books/<%= @comic_book.id %>/edit" class="button">Edit Comic Book</a>
     
     <p><%= @comic_book.description %></p>
 </div>
