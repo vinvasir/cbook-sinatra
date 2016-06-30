@@ -1,0 +1,5 @@
+<% if session[:user_id] == @user.id %>
+    <h1>Welcome, <%=@user.username%>!</h1>
+<% else %>
+    <h1>You have to be logged in to view this page!</h1>
+<% end %>
