@@ -1,8 +1,10 @@
 <h1>All Comic Books</h1>
 
 <% @cbs.each do |book| %>
-    <div class="display-box">
-        <h3><%= book.title %></h3>
-        <p><%= book.description %></p>
-    </div>
+    <a href="/comic_books/<%= book.id %>">
+        <div class="display-box">
+            <h3><%= book.title %></h3>
+            <p><%= book.description %></p>
+        </div>
+    </a>
 <% end %>
