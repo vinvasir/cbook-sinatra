@@ -4,7 +4,7 @@ body {
     background: url('/images/bg.png');    
 }
 
-/* link styles */
+/* default link styles */
 
 a {
     color: black;
@@ -12,7 +12,22 @@ a {
 }
 
 a:hover {
-    color: gray;
+    color: #BBB;
+}
+
+/* button-link styles */
+
+.button-NAME {
+     background-color: #00F;
+     border: 0;
+     color: #BBB;
+     padding: 10px 20px; 
+}
+
+.button-NAME:hover {
+     background: #BBB;
+     color: #000;
+     text-decoration: none;  
 }
 
 /* top navbar */
