@@ -23,8 +23,17 @@ class ComicBooksController < ApplicationController
   end  
   
   post '/comic_books' do
-    @comic_book = ComicBook.create(params)
-    redirect "/comic_books/#{@comic_book.id}"
+    author = Author.find_or_create_by(params["author"])
+    @comic_book = ComicBook.new(title: params["title"], 
+                                  description: params["description"],
+                                  author: author,
+                                  genre_ids: params["genres"])
+    if @comic_book.save
+      redirect "/comic_books/#{@comic_book.id}"
+    else
+      flash[:error] = "Please fill out all fields!"
+      redirect "/comic_books/new"
+    end
   end
   
   post '/comic_books/:id' do
