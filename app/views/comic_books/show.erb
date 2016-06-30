@@ -6,8 +6,21 @@
 <br /><br />
 
 <div class="display-box">
+    <h4>Reviews:</h4>
+    
+    <% @comic_book.reviews.each do |review| %>
+        <div class="reviews-box">
+            <h5><%= review.rating %></h5>
+            <p><%= review.content %></p>
+        </div>
+    <% end %>
+</div>
+
+<br /><br />
+
+<div class="display-box">
     <h4>Add a Review:</h4>
-    <form action="/reviews/#{@comic_book.id}" method="post">
+    <form action="/reviews/<%= @comic_book.id %>" method="post">
         <input type="text" name="content" id="content">
         
         <span class="rating">

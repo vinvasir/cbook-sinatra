@@ -56,6 +56,12 @@ li a:hover {
   padding: 20px;
 }
 
+/* a box to hold each review on the comic book show page */
+
+.reviews-box {
+    border-style: solid;
+}
+
 /* styling for 5-star review form, courtesy of: 
  https://www.everythingfrontend.com/posts/star-rating-input-pure-css.html */
 
