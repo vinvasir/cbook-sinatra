@@ -15,11 +15,13 @@
     <% @comic_book.reviews.each do |review| %>
         <div class="reviews-box">
             <h5><%= review.user.username %> says:</h5>
-            <h5><%= review.rating %> stars</h5>
-            <p><%= review.content %></p>
+            
             <% if review.user_id == session[:user_id] %>
                 <a href="/reviews/<%= review.id %>/edit" class="button-edit">Edit this review</a>
             <% end %>
+            
+            <h5><%= review.rating %> stars</h5>
+            <p><%= review.content %></p>
         </div>
     <% end %>
 </div>

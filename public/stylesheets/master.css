@@ -18,16 +18,17 @@ a:hover {
 /* button-link styles */
 
 .button-edit {
-     background-color: #00F;
-     border: 0;
-     color: #BBB;
-     padding: 10px 20px; 
+    float: right;
+    background-color: #00F;
+    border: 0;
+    color: #BBB;
+    padding: 10px 20px; 
 }
 
 .button-edit:hover {
-     background: #BBB;
-     color: #000;
-     text-decoration: none;  
+    background: #BBB;
+    color: #000;
+    text-decoration: none;  
 }
 
 /* top navbar */
