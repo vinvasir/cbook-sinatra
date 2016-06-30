@@ -8,6 +8,7 @@ class AuthorsController < ApplicationController
     if session[:user_id]
       erb :'/authors/new'
     else
+      flash[:error] = "You have to be logged in to create an author!"
       redirect '/login'
     end
   end
