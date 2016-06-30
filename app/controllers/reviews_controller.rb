@@ -1,7 +1,12 @@
 class ReviewsController < ApplicationController
   get '/reviews/:id/edit' do
     @review = Review.find(params[:id])
-    erb :'/reviews/edit'
+    if @review.user_id == session[:user_id]
+      erb :'/reviews/edit'
+    else
+      flash[:error] = "This review isn't yours to edit!"
+      redirect "/comic_books/#{@review.comic_book_id}"      
+    end
   end
   
   post '/reviews/:comic_book_id' do
@@ -11,14 +16,14 @@ class ReviewsController < ApplicationController
                                   rating: params["rating"],
                                   user_id: params["user_id"])
       if review.save
-        flash[:message] = "Successfully added review."
+        flash[:error] = "Successfully added review."
         redirect "/comic_books/#{@comic_book.id}"
       else
-        flash[:message] = "Please enter both a review and rating."
+        flash[:error] = "Please enter both a review and rating."
         redirect "/comic_books/#{@comic_book.id}"
       end
     else
-      flash[:message] = "You need to be logged in to add a review!"
+      flash[:error] = "You need to be logged in to add a review!"
       redirect '/login'
     end
   end
@@ -29,7 +34,7 @@ class ReviewsController < ApplicationController
       @review.update(content: params["content"], rating: params["rating"])
       redirect "/comic_books/#{@review.comic_book_id}"
     else
-      flash[:message] = "This review isn't yours to edit!"
+      flash[:error] = "This review isn't yours to edit!"
       redirect "/comic_books/#{@review.comic_book_id}"
     end
   end
