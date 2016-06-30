@@ -5,6 +5,11 @@
         <div class="display-box">
             <h3><%= book.title %></h3>
             <p><i>Author: <%= book.author.name if book.author %></i></p>
+            <p><i>
+                Genres: <% book.genres.each do |genre| %>
+                   <%= "#{genre.name} |" %>
+                <% end %>
+            </i></p>            
             <p><%= book.description %></p>
         </div>
     </a>
