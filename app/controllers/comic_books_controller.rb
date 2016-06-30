@@ -3,4 +3,8 @@ class ComicBooksController < ApplicationController
     @cbs = ComicBook.all
     erb :'/comic_books/index'
   end
+  
+  get '/comic_books/new' do
+    erb :'/comic_books/new'
+  end
 end
