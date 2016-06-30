@@ -1,5 +1,17 @@
 <% if session[:user_id] == @user.id %>
     <h1>Welcome, <%=@user.username%>!</h1>
+    
+    <h3>Your Reviews:</h3>
+    
+    <div class="display-box">
+        <% @user.reviews.each do |review| %>
+            <div class="reviews-box">
+                <h5><%= review.comic_book.title %>:</h5>
+                <h5><%= review.rating %> stars</h5>
+                <p><%= review.content %></p>
+            </div>
+        <% end %>
+    </div>
 <% else %>
     <h1>You have to be logged in to view this page!</h1>
 <% end %>
