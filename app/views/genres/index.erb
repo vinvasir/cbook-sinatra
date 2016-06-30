@@ -1,0 +1,15 @@
+<h1>All Genres</h1>
+
+<a href="/genres/new" class="button">Add a Genre</a>
+<br /><br />
+
+<% @genres.each do |genre| %>
+    <div class="display-box">
+        <%= genre.name %>
+        <ul>
+            <% genre.comic_books.each do |cb| %>
+                <li><a href="/comic_books/<%= cb.id %>"><%= cb.title %></a></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

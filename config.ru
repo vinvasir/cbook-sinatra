@@ -9,4 +9,5 @@ use UsersController
 use ComicBooksController
 use ReviewsController
 use AuthorsController
+use GenresController
 run ApplicationController
