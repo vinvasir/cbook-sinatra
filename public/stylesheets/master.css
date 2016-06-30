@@ -17,7 +17,7 @@ a:hover {
 
 /* top navbar */
 
-ul {
+ul.top-nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -25,11 +25,11 @@ ul {
     background: url('/images/stardust.png');
 }
 
-li {
+.top-nav li {
     float: left;
 }
 
-li a {
+.top-nav li a {
     display: block;
     color: white;
     text-align: center;

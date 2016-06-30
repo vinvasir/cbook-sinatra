@@ -30,6 +30,7 @@ class ReviewsController < ApplicationController
       redirect "/comic_books/#{@review.comic_book_id}"
     else
       flash[:message] = "This review isn't yours to edit!"
+      redirect "/comic_books/#{@review.comic_book_id}"
     end
   end
 end

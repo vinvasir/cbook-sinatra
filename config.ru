@@ -8,4 +8,5 @@ use Rack::MethodOverride
 use UsersController
 use ComicBooksController
 use ReviewsController
+use AuthorsController
 run ApplicationController

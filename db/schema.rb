@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630125602) do
+ActiveRecord::Schema.define(version: 20160630192749) do
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comic_books", force: :cascade do |t|
     t.string   "title"
