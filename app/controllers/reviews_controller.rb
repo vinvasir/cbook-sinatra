@@ -24,6 +24,12 @@ class ReviewsController < ApplicationController
   end
   
   patch '/reviews/:id' do
-    
+    @review = Review.find(params[:id])
+    if @review.user_id == session[:user_id]
+      @review.update(content: params["content"], rating: params["rating"])
+      redirect "/comic_books/#{@review.comic_book_id}"
+    else
+      flash[:message] = "This review isn't yours to edit!"
+    end
   end
 end
