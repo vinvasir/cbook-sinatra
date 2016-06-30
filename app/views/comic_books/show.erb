@@ -18,7 +18,7 @@
             <h5><%= review.rating %> stars</h5>
             <p><%= review.content %></p>
             <% if review.user_id == session[:user_id] %>
-                <a href="/reviews/<%= review.id %>/edit" class="button-NAME">Edit this review</a>
+                <a href="/reviews/<%= review.id %>/edit" class="button-edit">Edit this review</a>
             <% end %>
         </div>
     <% end %>

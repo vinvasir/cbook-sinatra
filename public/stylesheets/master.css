@@ -17,14 +17,14 @@ a:hover {
 
 /* button-link styles */
 
-.button-NAME {
+.button-edit {
      background-color: #00F;
      border: 0;
      color: #BBB;
      padding: 10px 20px; 
 }
 
-.button-NAME:hover {
+.button-edit:hover {
      background: #BBB;
      color: #000;
      text-decoration: none;  
