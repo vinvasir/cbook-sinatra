@@ -45,6 +45,10 @@ ul.top-nav {
     float: left;
 }
 
+.top-nav li.right {
+    float: right;
+}
+
 .top-nav li a {
     display: block;
     color: white;

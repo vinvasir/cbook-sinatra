@@ -11,11 +11,11 @@
         <li><a href="/authors">Authors</a></li>
         <li><a href="/genres">Genres</a></li>
         <% if session[:user_id].nil? %>
-            <li><a href="/signup">Sign Up</a></li>
-            <li><a href="/login">Log In</a></li>
+            <li class="right"><a href="/signup">Sign Up</a></li>
+            <li class="right"><a href="/login">Log In</a></li>
         <% else %>
-            <li><a href="/users/<%= session[:user_id] %>">Your Profile</a></li>
-            <li><a href="/logout">Log Out</a></li>
+            <li class="right"><a href="/logout">Log Out</a></li>        
+            <li class="right"><a href="/users/<%= session[:user_id] %>">Your Profile</a></li>
         <% end %>
     </ul>
     <%= yield %>
