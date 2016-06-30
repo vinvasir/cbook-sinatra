@@ -23,7 +23,7 @@ class ComicBooksController < ApplicationController
   end  
   
   post '/comic_books' do
-    author = Author.find_or_create_by(params["author"])
+    author = Author.find_or_create_by(name: params["author"])
     @comic_book = ComicBook.new(title: params["title"], 
                                   description: params["description"],
                                   author: author,
