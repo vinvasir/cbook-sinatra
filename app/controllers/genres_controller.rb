@@ -11,5 +11,15 @@ class GenresController < ApplicationController
       flash[:error] = "You have to be logged in to create a genre!"
       redirect '/login'
     end
+  end
+  
+  post '/genres' do
+    @genre = Genre.new(params)
+    if @genre.save
+      redirect '/genres'
+    else
+      flash[:error] = "You must enter a genre name!"
+      redirect '/genres/new'
+    end
   end  
 end
