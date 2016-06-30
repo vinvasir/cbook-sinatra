@@ -26,4 +26,17 @@ class ComicBooksController < ApplicationController
     @comic_book = ComicBook.create(params)
     redirect "/comic_books/#{@comic_book.id}"
   end
+  
+  post '/comic_books/:id' do
+    @comic_book = ComicBook.find(params[:id])
+    if session[:user_id]
+      @comic_book.update(title: params["title"], description: params["description"])
+      author = Author.find_or_create_by(name: params["author"]) unless params["author"].blank?
+      @comic_book.update_attribute(:author, author) unless params["author"].blank?
+      redirect "/comic_books/#{@comic_book.id}"
+    else
+      flash[:error] = "You must be logged in to edit a comic"
+      redirect "/login"
+    end
+  end
 end

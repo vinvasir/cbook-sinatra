@@ -1,0 +1,9 @@
+<h1>Edit <%= @comic_book.title %></h1>
+
+<form action="/comic_books/<%= @comic_book.id %>" method="post">
+    <p>Title: <input type="text" name="title" id="title" value="<%= @comic_book.title %>"></p>
+    <p>Description: <input type="text" name="description" id="description" value="<%= @comic_book.description %>"></p>
+    <p>Author: <input type="text" name="author" id="author" value="<%= @comic_book.author.name %>"></p>
+    
+    <input type="submit" value="Create Comic Book">
+</form>
