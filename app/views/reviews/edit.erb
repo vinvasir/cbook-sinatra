@@ -1,25 +1,27 @@
 <h4>Edit Review of <%= @review.comic_book.title %>:</h4>
 <form action="/reviews/<%= @review.id %>" method="post">
-    <input type="text" name="content" id="content">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    
+    <input type="text" name="content" id="content" value="<%= @review.content %>">
     
     <span class="rating">
             <input type="radio" class="rating-input"
-                id="rating-input-1-5" name="rating" value="5">
+                id="rating-input-1-5" name="rating" value="5" <%='checked' if @review.rating == 5%>>
             <label for="rating-input-1-5" class="rating-star"></label>
             <input type="radio" class="rating-input"
-                id="rating-input-1-4" name="rating" value="4">
+                id="rating-input-1-4" name="rating" value="4" <%='checked' if @review.rating == 4%>>
             <label for="rating-input-1-4" class="rating-star"></label>
             <input type="radio" class="rating-input"
-                id="rating-input-1-3" name="rating" value="3">
+                id="rating-input-1-3" name="rating" value="3" <%='checked' if @review.rating == 3%>>
             <label for="rating-input-1-3" class="rating-star"></label>
             <input type="radio" class="rating-input"
                 id="rating-input-1-2" name="rating" value="2">
-            <label for="rating-input-1-2" class="rating-star"></label>
+            <label for="rating-input-1-2" class="rating-star" <%='checked' if @review.rating == 2%>></label>
             <input type="radio" class="rating-input"
-                id="rating-input-1-1" name="rating" value="1">
+                id="rating-input-1-1" name="rating" value="1" <%='checked' if @review.rating == 1%>>
             <label for="rating-input-1-1" class="rating-star"></label>
         </span>
     <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
     
-    <input type="submit" value="Submit Review">
+    <input type="submit" value="Edit Review">
 </form>

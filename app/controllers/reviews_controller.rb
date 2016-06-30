@@ -21,5 +21,9 @@ class ReviewsController < ApplicationController
       flash[:message] = "You need to be logged in to add a review!"
       redirect '/login'
     end
-  end    
+  end
+  
+  patch '/reviews/:id' do
+    
+  end
 end
