@@ -1,4 +1,9 @@
 class ReviewsController < ApplicationController
+  get '/reviews/:id/edit' do
+    @review = Review.find(params[:id])
+    erb :'/reviews/edit'
+  end
+  
   post '/reviews/:comic_book_id' do
     if session[:user_id]
       @comic_book = ComicBook.find(params[:comic_book_id])
