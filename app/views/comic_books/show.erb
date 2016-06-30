@@ -10,6 +10,7 @@
     
     <% @comic_book.reviews.each do |review| %>
         <div class="reviews-box">
+            <h5><%= review.user.username %> says:</h5>
             <h5><%= review.rating %> stars</h5>
             <p><%= review.content %></p>
         </div>
