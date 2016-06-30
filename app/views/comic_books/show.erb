@@ -17,7 +17,7 @@
             <h5><%= review.user.username %> says:</h5>
             
             <% if review.user_id == session[:user_id] %>
-                <a href="/reviews/<%= review.id %>/edit" class="button-edit">Edit this review</a>
+                <a href="/reviews/<%= review.id %>/edit" class="button">Edit this review</a>
             <% end %>
             
             <h5><%= review.rating %> stars</h5>

@@ -17,7 +17,7 @@ a:hover {
 
 /* button-link styles */
 
-.button-edit {
+.button {
     float: right;
     background-color: #00F;
     border: 0;
@@ -25,7 +25,7 @@ a:hover {
     padding: 10px 20px; 
 }
 
-.button-edit:hover {
+.button:hover {
     background: #BBB;
     color: #000;
     text-decoration: none;  
