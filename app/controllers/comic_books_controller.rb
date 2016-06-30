@@ -8,6 +8,14 @@ class ComicBooksController < ApplicationController
     erb :'/comic_books/new'
   end
   
+  get 'comic_books/edit' do
+    if session[:user_id]
+      erb :'/comic_books/edit'
+    else
+      flash[:error] = "You must be logged in to edit a comic"
+    end
+  end
+  
   get '/comic_books/:id' do
     @comic_book = ComicBook.find(params[:id])
     erb :'/comic_books/show'
