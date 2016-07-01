@@ -4,7 +4,7 @@
     <a href="/comic_books/<%= book.id %>">
         <div class="display-box">
             <h3><%= book.title %></h3>
-            <p><i>Author: <%= book.author.name if book.author %></i></p>
+            <p><strong>Author: <i><%= book.author.name if book.author %></i>. Artist: <i><%= book.artist.name if book.artist %></i></strong></p>
             <p><i>
                 Genres: <% book.genres.each do |genre| %>
                    <%= "#{genre.name} |" %>

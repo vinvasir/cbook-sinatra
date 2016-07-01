@@ -4,7 +4,7 @@
 
 <div class="display-box">
     <h3><%= @comic_book.title %></h3>
-    <p><i><strong>Author: <%= @comic_book.author.name if @comic_book.author %>. Artist: <%= @comic_book.artist.name if @comic_book.artist %></strong></i></p>
+    <p><strong>Author: <i><%= @comic_book.author.name if @comic_book.author %></i>. Artist: <i><%= @comic_book.artist.name if @comic_book.artist %></strong></i></p>
     <p><i>
         Genres: <% @comic_book.genres.each do |genre| %>
            <%= "#{genre.name} |" %>

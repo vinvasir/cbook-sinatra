@@ -50,6 +50,7 @@ class ComicBooksController < ApplicationController
       author = Author.find_or_create_by(name: params["author"]) unless params["author"].blank?
       artist = Artist.find_or_create_by(name: params["artist"]) unless params["artist"].blank?
       @comic_book.update_attribute(:author, author) unless params["author"].blank?
+      @comic_book.update_attribute(:artist, artist) unless params["artist"].blank?
       @comic_book.update_attribute(:genre_ids, params["genres"])
       redirect "/comic_books/#{@comic_book.id}"
     else
