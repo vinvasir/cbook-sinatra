@@ -6,6 +6,7 @@
     <p>Title: <input type="text" name="title" id="title" value="<%= @comic_book.title %>"></p>
     <p>Description: <input type="text" name="description" id="description" value="<%= @comic_book.description %>"></p>
     <p>Author: <input type="text" name="author" id="author" value="<%= @comic_book.author.name if @comic_book.author %>"></p>
+    <p>Artist: <input type="text" name="artist" id="artist" value="<%= @comic_book.artist.name if @comic_book.artist %>"></p>
     
     <%Genre.all.each do |genre|%>
         <input type="checkbox" name="genres[]" value="<%=genre.id%>" <%='checked' if @comic_book.genres.include?(genre)%> id="<%=genre.name %>"><%=genre.name%></input>

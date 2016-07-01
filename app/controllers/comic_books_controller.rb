@@ -24,10 +24,12 @@ class ComicBooksController < ApplicationController
   
   post '/comic_books' do
     author = Author.find_or_create_by(name: params["author"])
+    artist = Artist.find_or_create_by(name: params["artist"])
     if session[:user_id]
       @comic_book = ComicBook.new(title: params["title"], 
                                     description: params["description"],
                                     author: author,
+                                    artist: artist,
                                     genre_ids: params["genres"])
       if @comic_book.save
         redirect "/comic_books/#{@comic_book.id}"
@@ -46,6 +48,7 @@ class ComicBooksController < ApplicationController
     if session[:user_id]
       @comic_book.update(title: params["title"], description: params["description"])
       author = Author.find_or_create_by(name: params["author"]) unless params["author"].blank?
+      artist = Artist.find_or_create_by(name: params["artist"]) unless params["artist"].blank?
       @comic_book.update_attribute(:author, author) unless params["author"].blank?
       @comic_book.update_attribute(:genre_ids, params["genres"])
       redirect "/comic_books/#{@comic_book.id}"
