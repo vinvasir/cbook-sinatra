@@ -24,15 +24,20 @@ class ComicBooksController < ApplicationController
   
   post '/comic_books' do
     author = Author.find_or_create_by(name: params["author"])
-    @comic_book = ComicBook.new(title: params["title"], 
-                                  description: params["description"],
-                                  author: author,
-                                  genre_ids: params["genres"])
-    if @comic_book.save
-      redirect "/comic_books/#{@comic_book.id}"
+    if session[:user_id]
+      @comic_book = ComicBook.new(title: params["title"], 
+                                    description: params["description"],
+                                    author: author,
+                                    genre_ids: params["genres"])
+      if @comic_book.save
+        redirect "/comic_books/#{@comic_book.id}"
+      else
+        flash[:error] = "Please fill out all fields!"
+        redirect "/comic_books/new"
+      end
     else
-      flash[:error] = "Please fill out all fields!"
-      redirect "/comic_books/new"
+      flash[:error] = "Please log in to post a comic book"
+      redirect '/login'
     end
   end
   
