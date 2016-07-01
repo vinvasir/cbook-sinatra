@@ -1,0 +1,15 @@
+<h1>All Artists</h1>
+
+<a href="/artists/new" class="button">Add an artist</a>
+<br /><br />
+
+<% @artists.each do |artist| %>
+    <div class="display-box">
+        <%= artist.name %>
+        <ul>
+            <% artist.comic_books.each do |cb| %>
+                <li><a href="/comic_books/<%= cb.id %>"><%= cb.title %></a></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
