@@ -19,5 +19,12 @@
             <li class="right"><a href="/users/<%= session[:user_id] %>">Your Profile</a></li>
         <% end %>
     </ul>
+    
+    <br>
+    
+    <% if flash.has? :error %>
+        <h3><%= flash[:error] %></h3>
+    <% end %>
+    
     <%= yield %>
 </body>

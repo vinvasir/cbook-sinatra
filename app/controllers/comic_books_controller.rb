@@ -5,7 +5,12 @@ class ComicBooksController < ApplicationController
   end
   
   get '/comic_books/new' do
-    erb :'/comic_books/new'
+    if session[:user_id]
+      erb :'/comic_books/new'
+    else
+      flash[:error] = "You must be logged in to create a comic"
+      redirect '/login'
+    end    
   end
   
   get '/comic_books/:id' do
@@ -19,6 +24,7 @@ class ComicBooksController < ApplicationController
       erb :'/comic_books/edit'
     else
       flash[:error] = "You must be logged in to edit a comic"
+      redirect '/comic_books/login'
     end
   end  
   

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     if session[:user_id].nil?
       erb :'/users/login'
     else
+      flash[:error] = "You're already logged in!"
       redirect "/users/#{session[:user_id]}"
     end
   end
@@ -14,15 +15,21 @@ class UsersController < ApplicationController
   get '/logout' do
     if session[:user_id]
       session.clear
-      redirect '/login'
-    else
       redirect '/'
+    else
+      flash[:error] = "You're not even logged in to begin with!"
+      redirect '/login'
     end
   end  
   
   get '/users/:id' do
     @user = User.find(params[:id])
-    erb :'/users/show'
+    if @user.id == session[:user_id]
+      erb :'/users/show'
+    else
+      flash[:error] = "You need to be logged in to see your profile!"
+      redirect '/login'
+    end
   end
   
   post '/signup' do
@@ -41,6 +48,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/#{session[:user_id]}"
     else
+      flash[:error] = "Please enter a valid username and password"
       redirect '/login'
     end    
   end
