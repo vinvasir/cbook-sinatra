@@ -111,3 +111,9 @@ li a:hover {
 .rating-input:checked ~ .rating-star {
   background-position: 0 0;
 }
+
+/* error message styling */
+h3.error {
+    color: red;
+    background-color: white;
+}
